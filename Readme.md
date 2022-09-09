@@ -9,3 +9,14 @@
 4. Install requirements `pip install -r requirements.txt`
 5. Run server `python manage.py runserver`
 
+Web - http://127.0.0.1:8000/  <br />
+Api - http://127.0.0.1:8000/api/  <br />
+    List All user           - (GET)   http://127.0.0.1:8000/api/  <br />
+    Single User             - (GET)   http://127.0.0.1:8000/api/1/  <br />
+    Create User             - (POST)  http://127.0.0.1:8000/api/  <br />
+    Update User             - (PUT)   http://127.0.0.1:8000/api/1/  <br />
+    Update User(Partialy)   - (PATCH) http://127.0.0.1:8000/api/1/ <br />
+
+    Note: Browser support is enabled.
+
+
