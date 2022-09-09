@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container m-5 p-5 pt-0">
+    <div class="row">
+        <div class="col-8">
+            <h2>Users List</h2>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="btn btn-primary" href="{% url 'user_app:create_user' %}" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Create User</a>
+        </div>
+    </div>
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">email</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in user_list %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'user_app:update_user' user.id %}" role="button"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a>
+                    <a class="btn btn-info" href='{% url "user_app:user_detail" user.id %}'> <i class="fa fa-eye" aria-hidden="true"></i> View </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

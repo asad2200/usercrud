@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+
+{% block body %}
+<div class="container m-5 p-5 mt-0">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="pb-4">{% if user_form.instance.pk %} Update User {% else %} Create User {% endif %}</h2>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="btn btn-success" href="{% url 'user_app:user_list' %}" role="button"> <i class="fa fa-list-ol" aria-hidden="true"></i> User List</a>
+        </div>
+    </div>
+    {% if user_form.errors%}
+    {% for field in user_form %}
+    {% if field.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ field.errors|striptags }}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    {% if user_address_form.errors%}
+    {% for field in user_address_form %}
+    {% if field.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{field.name}} : {{ field.errors|striptags }}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_form.profile_image.label}}</label>
+            <div class="col-sm-10">
+                {{user_form.profile_image|add_classes:'form-control'}}
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_form.first_name.label}}</label>
+            <div class="col-sm-10">
+                {{user_form.first_name|add_classes:'form-control'}}
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_form.last_name.label}}</label>
+            <div class="col-sm-10">
+                {{user_form.last_name|add_classes:'form-control'}}
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_form.email.label}}</label>
+            <div class="col-sm-10">
+                {{user_form.email|add_classes:'form-control'}}
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_form.phone.label}}</label>
+            <div class="col-sm-10">
+                {{user_form.phone|add_classes:'form-control'}}
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_form.dob.label}}</label>
+            <div class="col-sm-10">
+                {{user_form.dob|add_classes:'form-control'}}
+                <p class="text-muted">&nbsp; Formate should be "(yyyy-mm-dd)".</p>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_address_form.address_1.label}}</label>
+            <div class="col-sm-10">
+                {{user_address_form.address_1|add_classes:'form-control'}}
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_address_form.address_2.label}}</label>
+            <div class="col-sm-10">
+                {{user_address_form.address_2|add_classes:'form-control'}}
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_address_form.city.label}}</label>
+            <div class="col-sm-10">
+                {{user_address_form.city|add_classes:'form-control'}}
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_address_form.state.label}}</label>
+            <div class="col-sm-10">
+                {{user_address_form.state|add_classes:'form-control'}}
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_address_form.country.label}}</label>
+            <div class="col-sm-10">
+                {{user_address_form.country|add_classes:'form-control'}}
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">{{user_address_form.pincode.label}}</label>
+            <div class="col-sm-10">
+                {{user_address_form.pincode|add_classes:'form-control'}}
+            </div>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary mb-3">
+    </form>
+</div>
+{% endblock%}

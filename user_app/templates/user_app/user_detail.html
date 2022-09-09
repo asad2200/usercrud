@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container m-5 p-5 pt-0">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="pb-4">User Detail</h2>    
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="btn btn-success" href="{% url 'user_app:user_list' %}" role="button"><i class="fa fa-list-ol" aria-hidden="true"></i> User List</a>
+            <div class="p-3">
+                <a class="btn btn-warning" href="{% url 'user_app:update_user' object.id %}" role="button"><i class="fa fa-pencil" aria-hidden="true"></i> Update User</a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="row align-items-start">
+            <div class="col-4">
+                <b>Profile Photo</b>
+            </div>
+            <div class="col">
+                <img src='{{object.profile_image.url}}' alt_txt='profile_img' style='width:150px;height:150px;' />
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>First Name</b>
+            </div>
+            <div class="col">
+                {{object.first_name}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Last Name</b>
+            </div>
+            <div class="col">
+                {{object.last_name}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Email</b>
+            </div>
+            <div class="col">
+                {{object.email}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Phone Number</b>
+            </div>
+            <div class="col">
+                {{object.phone}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Date Of Birth</b>
+            </div>
+            <div class="col">
+                {{object.dob}}
+            </div>
+        </div>
+        <hr />
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Address Line 1</b>
+            </div>
+            <div class="col">
+                {{object.user_address.address_1}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Address Line 2</b>
+            </div>
+            <div class="col">
+                {{object.user_address.address_2}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>City</b>
+            </div>
+            <div class="col">
+                {{object.user_address.city}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>State</b>
+            </div>
+            <div class="col">
+                {{object.user_address.state}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Country</b>
+            </div>
+            <div class="col">
+                {{object.user_address.country}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Pincode</b>
+            </div>
+            <div class="col">
+                {{object.user_address.pincode}}
+            </div>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}
