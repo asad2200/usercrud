@@ -20,13 +20,16 @@ Api - http://127.0.0.1:8000/api/  <br />
     Note: Browser support is enabled.
 
 ## Apartment:
+- For login used these credentials: 
+    - Username: admin
+    - Password: admin
 - WEB:
     - Apartment List - http://127.0.0.1:8000/apartment/
     - Apartment Review (Add/View) - http://127.0.0.1:8000/apartment/review/<apartment_id>
 
 - Api:(Attached Postman Collection)
-    - View User Review - GET http://127.0.0.1:8000/api-apartment/review/2
-    - Add User Review  - POST http://127.0.0.1:8000/api-apartment/review/2
+    - View User Review - GET http://127.0.0.1:8000/api-apartment/review/<apartment_id>
+    - Add User Review  - POST http://127.0.0.1:8000/api-apartment/review/<apartment_id>
 
 
 
