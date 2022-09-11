@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container m-5 p-5 pt-0">
+    <div class="row">
+        <div class="col-8">
+            <h2>Apartment List</h2>
+        </div>
+    </div>
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Apartment Name</th>
+                <th scope="col">Review</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for apartment in apartment_list %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{apartment.name}}</td>
+                <td>
+                    {% if request.user.is_authenticated %}
+                    <a class="btn btn-outline-primary" href="{% url 'reviewapp:add_apartment_review' apartment.id %}" role="button">{% if apartment.is_added_review %} See Your review {% else %} Add Your Review {% endif %}</a>
+                    {% else %}
+                    <a class="btn btn-outline-success" href="{% url 'admin:index' %}" role="button">Login to add review</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

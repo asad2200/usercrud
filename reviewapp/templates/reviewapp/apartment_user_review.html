@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container m-5 p-5 mt-0">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="pb-4">Your {{apartment.name}} review.</h2>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="btn btn-success" href="{% url 'reviewapp:apartment_list' %}" role="button"> <i class="fa fa-list-ol" aria-hidden="true"></i> Apartment List</a>
+        </div>
+
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Overall Rating</b>
+            </div>
+            <div class="col text-secondary">
+                {{apartment_review.overall_rating}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Cleanliness</b>
+            </div>
+            <div class="col text-secondary">
+                {{apartment_review.cleanliness}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Communication</b>
+            </div>
+            <div class="col text-secondary">
+                {{apartment_review.communication}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Check-in</b>
+            </div>
+            <div class="col text-secondary">
+                {{apartment_review.check_in}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Accuracy</b>
+            </div>
+            <div class="col text-secondary">
+                {{apartment_review.accuracy}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Location</b>
+            </div>
+            <div class="col text-secondary">
+                {{apartment_review.location}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Value</b>
+            </div>
+            <div class="col text-secondary">
+                {{apartment_review.value}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-12">
+                <b>Review</b>
+            </div>
+            <div class="col text-secondary">
+                {{apartment_review.review}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}
